@@ -1,0 +1,64 @@
+header {
+    background-color: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+#logo {
+    display: block;
+    float: left;
+    width: 175px;
+    height: 57px;
+    margin: 14px 0 14px 0;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transform: translate(0%, -50%);
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+nav ul li {
+    padding-right: 10px;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+#dropdown-link {
+    position: relative;
+}
+
+#dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    top: 100%;
+    left: 0;
+    padding: 10px 0;
+    list-style: none;
+    margin: 0;
+}
+
+#dropdown-link:hover + #dropdown-content,
+#dropdown-content:hover {
+    display: block
+}
+
+#dropdown-content li a {
+    display: block;
+    padding: 8px 20px;
+    color: white;
+    text-decoration: none
+}
