@@ -11,6 +11,8 @@ body {
     height: 56vmin;
     object-fit: cover;
     object-position: center;
+    -webkit-user-drag: none;
+    user-select: none;
 }
 
 #image-track {
@@ -20,4 +22,9 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(0%, -50%);
+    transition: transform 0.3s ease-out;
+}
+
+#image-track.dragging {
+    transition: none;
 }
