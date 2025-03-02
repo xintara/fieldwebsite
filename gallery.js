@@ -3,7 +3,6 @@ let change;
 
 window.onmousedown = e => {
     track.dataset.mouseDownAt = e.clientX;
-    track.classList.add("dragging");
 }
 
 window.onmousemove = e => {
@@ -15,16 +14,20 @@ window.onmousemove = e => {
     const deltaConverted = mouseDelta / maxDelta * -100;
 
     const percentage = parseFloat(track.dataset.prevPercentage) + deltaConverted;
-
-
     change = Math.min(0, Math.max(-100, percentage));
-    console.log(change);
-    track.style.transform = `translate(${change}%, -50%)`;
+
+    track.animate({
+        transform: `translate(${change}%, -50%)`
+    }, {duration: 1200, fill: "forwards"});
+    for (const image of track.getElementsByClassName("image")) {
+        image.animate({
+            objectPosition: `${100 + change}% 50%`
+        }, {duration: 1200, fill: "forwards"});
+    }
 }
 
 window.onmouseup = () => {
     track.dataset.mouseDownAt = "0";
-    track.classList.remove("dragging");
     track.dataset.prevPercentage = change;
 }
 
@@ -32,8 +35,14 @@ window.onwheel = e => {
     const scrollDelta = e.deltaY / window.innerWidth * -100;
     const percentage = parseFloat(track.dataset.prevPercentage) + scrollDelta;
 
-    console.log(percentage);
     change = Math.min(0, Math.max(-100, percentage));
-    track.style.transform = `translate(${change}%, -50%)`;
+    track.animate({
+        transform: `translate(${change}%, -50%)`
+    }, {duration: 1200, fill: "forwards"});
+    for (const image of track.getElementsByClassName("image")) {
+        image.animate({
+            objectPosition: `${100 + change}% 50%`
+        }, {duration: 1200, fill: "forwards"});
+    }
     track.dataset.prevPercentage = change;
 }
