@@ -5,6 +5,7 @@
 
 body {
     overflow-x: hidden;
+    background-color: black;
 }
 
 header {
@@ -100,6 +101,7 @@ nav ul li a {
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
+    animation: bg-fade 3s;
 }
 
 #hero_text {
@@ -111,10 +113,10 @@ nav ul li a {
     font-size: 3vw;
     color: white;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    animation: 2s ease-out 0s 1 fadeIn;
+    animation: 2s ease-out 0s 1 fade-in;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
     0% {
         opacity: 0;
         transform: translate(-50%, -150%);
@@ -123,4 +125,46 @@ nav ul li a {
         opacity: 1;
         transform: translateY(-50%, -50%);
     }
+}
+
+@keyframes bg-fade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#owner-involvement {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 150%;
+    left: 15%;
+    right: 15%;
+}
+
+#owner-involvement-text {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    backdrop-filter: blur(5px);
+}
+
+#owner-involvement-text h2 {
+    padding-bottom: 20px;
+    font-size: 2vw;
+}
+
+#owner-involvement-text p {
+    font-size: 1vw;
+}
+
+#owner-image-container img {
+    width: 20vw;
+    height: 30vh;
 }
